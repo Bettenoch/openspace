@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'chat',
+    'chat.user'
 ]
 
 MIDDLEWARE = [
@@ -77,9 +78,9 @@ WSGI_APPLICATION = 'openspace.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        "NAME": "socialdb",
-        'USER': 'social',
-        'PASSWORD': 'social254',
+        "NAME": "storedb",
+        'USER': 'store',
+        'PASSWORD': 'store254',
         'HOST': 'localhost',
         'PORT': '5432',
     }
@@ -126,3 +127,5 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = 'chat_user.User' # use the user model for authentication user model
