@@ -6,14 +6,13 @@ from chat.user.models import User
 # Create your views here.
 
 class UserViewSet(viewsets.ModelViewSet):
-    http_method_names = ['patch', 'get']
+    http_method_names = ('patch', 'get')
     permission_classes = (AllowAny,)
     serializer_class = UserSerializer
     
     def get_queryset(self):
-        if self.request.user.is_superuser:
-            return User.objects.all()
-        return User.objects.exclude(is_superuser=True)
+        queryset = User.objects.all()
+        return queryset
     
     def get_object(self):
         obj = User.objects.get_object_by_public_id(self.kwargs['pk'])
