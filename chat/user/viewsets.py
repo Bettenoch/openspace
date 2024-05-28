@@ -1,4 +1,4 @@
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import AllowAny
 from rest_framework import viewsets
 from chat.user.serializers import UserSerializer
 from chat.user.models import User
@@ -7,7 +7,7 @@ from chat.user.models import User
 
 class UserViewSet(viewsets.ModelViewSet):
     http_method_names = ('patch', 'get')
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (AllowAny,)#change to IsAuthenticated to prevent any user from viewing others
     serializer_class = UserSerializer
     
     def get_queryset(self):
