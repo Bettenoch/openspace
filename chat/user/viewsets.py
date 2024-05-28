@@ -1,11 +1,11 @@
 from rest_framework.permissions import AllowAny
-from rest_framework import viewsets
 from chat.user.serializers import UserSerializer
 from chat.user.models import User
+from chat.abstract.viewsets import AbstractViewSet
 
 # Create your views here.
 
-class UserViewSet(viewsets.ModelViewSet):
+class UserViewSet(AbstractViewSet):
     http_method_names = ('patch', 'get')
     permission_classes = (AllowAny,)#change to IsAuthenticated to prevent any user from viewing others
     serializer_class = UserSerializer
