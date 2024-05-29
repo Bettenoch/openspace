@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'chat',
     'chat.user',
-    'chat.auth'
+    'chat.auth',
     'chat.post',
 ]
 
