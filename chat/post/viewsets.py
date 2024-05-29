@@ -29,12 +29,6 @@ class PostViewSet(AbstractViewSet):
         self.perform_create(serializer)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
-    def update(self, instance, validated_data):
-        if not instance.edited:
-            validated_data["edited"] = True
-        instance = super().update(instance, validated_data)
-        return instance
-    
     @action(methods=['post'], detail = True)
     
     def like(self, request, *args, **kwargs):
