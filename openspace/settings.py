@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'chat.user',
     'chat.auth',
     'chat.post',
+    'chat.comment'
 ]
 
 MIDDLEWARE = [
