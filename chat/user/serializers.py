@@ -10,6 +10,8 @@ class UserSerializer(AbstractSerializer):
             "id",
             "username",
             "email",
+            "bio",
+            "avatar",
             "first_name",
             "last_name",
             "is_active",
