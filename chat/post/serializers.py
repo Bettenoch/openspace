@@ -29,6 +29,14 @@ class PostSerializer(AbstractSerializer):
             raise ValidationError("You are not the author of this post")
         return value
 
+    def update(self, instance, validated_data):
+        if not instance.edited:
+            validated_data["edited"] = True
+            
+        instance = super().update(instance, validated_data)
+        
+        return instance
+
     def to_representation(self, instance):
         rep = super().to_representation(instance)
         author = User.objects.get_object_by_public_id(rep["author"])
@@ -43,8 +51,8 @@ class PostSerializer(AbstractSerializer):
             "id",
             "author",
             "body",
-            "created_at",
-            "updated_at",
+            "created",
+            "updated",
             "liked",
             "likes_count",
         ]
