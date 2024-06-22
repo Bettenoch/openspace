@@ -1,8 +1,5 @@
 from django.db import models
-import uuid
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
-from django.core.exceptions import ObjectDoesNotExist
-from django.http import Http404
 from chat.abstract.models import AbstractManager, AbstractModel
 class UserManager(BaseUserManager, AbstractManager):
     def create_user(self, username, email, password=None, **kwargs):
