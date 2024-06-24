@@ -41,8 +41,8 @@ class User(AbstractBaseUser,AbstractModel, PermissionsMixin):
     is_superuser = models.BooleanField(default=True)
     posts_liked = models.ManyToManyField("chat_post.Post", related_name="liked_by")
 
-    USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['username']
+    USERNAME_FIELD = 'username'
+    EMAIL_FIELD = 'email'
     objects = UserManager()
 
     def __str__(self):
